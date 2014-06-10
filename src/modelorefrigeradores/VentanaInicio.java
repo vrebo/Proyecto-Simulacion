@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package modelorefrigeradores;
 
 import javax.swing.ImageIcon;
@@ -34,7 +28,7 @@ public class VentanaInicio extends JFrame {
         setTitle("Modelo de Simulación Problema 4 capitulo 3.");
         VistaPrincipal vista = new VistaPrincipal();
         setLocation(100,100);
-        setSize(450, 550);
+        setSize(450, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(vista);
         String url = "/iconos/icono.png";

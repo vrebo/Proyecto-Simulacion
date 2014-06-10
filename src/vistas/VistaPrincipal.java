@@ -38,15 +38,17 @@ public class VistaPrincipal extends JPanel{
     private final String ETQ_COSTO_INVENTARIO = "Costo de inventario: ";
     private final String ETQ_CORRIDAS = "Número de corridas: ";
     private final String ETQ_DIAS = "Días por corrida: ";
+    private final String ETQ_MEDIA = "Demanda promedio: ";
+    private final String ETQ_DEV_EST = "Desviación Estándar: ";
     private final String ETQ_BTN_INICIAR = "iniciar Simulación";
     private JCheckBox jcbxPoliticas;
     private JTextField jtfPoliticas;
-    private JTextField jtfMedia;
-    private JTextField jtfDevEstandar;
     private JTextField jtfCostoFaltante;
     private JTextField jtfCostoInventario;
     private JTextField jtfCorridas;
     private JTextField jtfDias;
+    private JTextField jtfMedia;
+    private JTextField jtfDevEstandar;
     private JButton jbnIniciar;
     private GridBagConstraints gbc;
     
@@ -60,28 +62,27 @@ public class VistaPrincipal extends JPanel{
         gbc = new GridBagConstraints();
         jcbxPoliticas = new JCheckBox(ETQ_JCBX_SELECCION);
         jcbxPoliticas.setToolTipText("Seleccione esta casilla si desea introducir datos diferentes a los del enunciado.");
-        jtfPoliticas = new JTextField(20);
+        jtfPoliticas = new JTextField(30);
         jtfPoliticas.setEnabled(false);
         jtfPoliticas.setToolTipText("Introduzca las políticas que quiera que se evaluen separadas por un espacio en blanco.");
-        jtfMedia = new JTextField(10);
-        jtfMedia.setEnabled(false);
-        jtfDevEstandar = new JTextField(10);
-        jtfDevEstandar.setEnabled(false);
-        jtfCostoFaltante = new JTextField(20);
+        jtfCostoFaltante = new JTextField(7);
         jtfCostoFaltante.setEnabled(false);
-        jtfCostoInventario = new JTextField(20);
+        jtfCostoInventario = new JTextField(7);
         jtfCostoInventario.setEnabled(false);
-        jtfCorridas = new JTextField(20);
+        jtfCorridas = new JTextField(7);
         jtfCorridas.setEnabled(false);
-        jtfDias = new JTextField(20);
+        jtfDias = new JTextField(7);
         jtfDias.setEnabled(false);
+        jtfMedia = new JTextField(7);
+        jtfMedia.setEnabled(false);
+        jtfDevEstandar = new JTextField(7);
+        jtfDevEstandar.setEnabled(false);
         jbnIniciar = new JButton(ETQ_BTN_INICIAR);
         
         JTextArea enunciado =  new JTextArea(texto);
         enunciado.setEditable(false);
         enunciado.setFont(new Font("Arial", Font.PLAIN, 11));
         enunciado.setBorder(BorderFactory.createEtchedBorder());
-        
         JPanel pInterno = new JPanel(new BorderLayout(10, 10));
         pInterno.setBorder(BorderFactory.createEtchedBorder());
         JLabel encabezado = new JLabel("Enunciado del problema");
@@ -98,30 +99,42 @@ public class VistaPrincipal extends JPanel{
         setGBC(0, 1);
         pInterno.add(new JLabel(ETQ_POLITICAS), gbc);
         setGBC(1, 1);
+        gbc.gridwidth = 3;
         pInterno.add(jtfPoliticas, gbc);
         
         setGBC(0, 2);
+        gbc.gridwidth = 1;
         pInterno.add(new JLabel(ETQ_COSTO_FALTANTE), gbc);
-        setGBC(1, 2);
+        setGBC(1, 2, GridBagConstraints.FIRST_LINE_END,gbc.insets);
         pInterno.add(jtfCostoFaltante, gbc);
         
-        setGBC(0, 3);
+        setGBC(2, 2);
         pInterno.add(new JLabel(ETQ_COSTO_INVENTARIO), gbc);
-        setGBC(1, 3);
+        setGBC(3, 2);
         pInterno.add(jtfCostoInventario, gbc);
         
-        setGBC(0, 4);
+        setGBC(0, 4,GridBagConstraints.FIRST_LINE_END,gbc.insets);
         pInterno.add(new JLabel(ETQ_CORRIDAS), gbc);
         setGBC(1, 4);
         pInterno.add(jtfCorridas, gbc);
         
-        setGBC(0, 5);
+        setGBC(2, 4);
         pInterno.add(new JLabel(ETQ_DIAS), gbc);
-        setGBC(1, 5);
+        setGBC(3, 4);
         pInterno.add(jtfDias, gbc);
         
+        setGBC(0, 5, GridBagConstraints.FIRST_LINE_END,gbc.insets);
+        pInterno.add(new JLabel(ETQ_MEDIA), gbc);
+        setGBC(1, 5);
+        pInterno.add(jtfMedia, gbc);
+        
+        setGBC(2, 5);
+        pInterno.add(new JLabel(ETQ_DEV_EST), gbc);
+        setGBC(3, 5);
+        pInterno.add(jtfDevEstandar, gbc);
+        
         setGBC(0, 6, GridBagConstraints.CENTER, gbc.insets);
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 4;
         pInterno.add(jbnIniciar, gbc);
         add(pInterno, BorderLayout.CENTER);
     }
