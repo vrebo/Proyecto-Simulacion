@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import modelos.Corrida;
 import vistas.VistaResultados;
@@ -148,7 +149,7 @@ public class ControladorVistaPrincipal extends InputVerifier implements ActionLi
             }
             panel.setjLblPromedioCorridas("Costo Promedio de todas las corridas $" + promedioCorridas);
         }
-        indicaMejorPolitica(vResultados,indiceMejorPolitica,mejorPolitica);
+        indicaMejorPolitica(vResultados, indiceMejorPolitica, mejorPolitica);
     }
 
     private void simulacion(VistaResultados vResultados) {
@@ -189,21 +190,33 @@ public class ControladorVistaPrincipal extends InputVerifier implements ActionLi
             }
             panel.setjLblPromedioCorridas("Costo Promedio de todas las corridas $" + promedioCorridas);
         }
-        indicaMejorPolitica(vResultados,indiceMejorPolitica,mejorPolitica);
+        indicaMejorPolitica(vResultados, indiceMejorPolitica, mejorPolitica);
     }
 
     private void indicaMejorPolitica(VistaResultados vResultados, int index, double costoTotal) {
-        vResultados.getPestanas().getComponentAt(index).setBackground(Color.GREEN);
-        String url = "/iconos/solucionx16.png";
-        ImageIcon icono = new ImageIcon(getClass().getResource(url));
-        vResultados.getPestanas().setIconAt(index, icono);
+        JTabbedPane pestanas = vResultados.getPestanas();
+        String url;
+        ImageIcon icono;
         String politica = vResultados.getPestanas().getTitleAt(index).split(" ")[1];
+        for (int i = pestanas.getTabCount() - 1; i >= 0; i--) {
+            if (i == index) {
+                url = "/iconos/solucionx16.png";
+                pestanas.getComponentAt(i).setBackground(new Color(154, 254, 46));
+                icono = new ImageIcon(getClass().getResource(url));
+                pestanas.setIconAt(i, icono);
+            } else {
+                url = "/iconos/no-solucionx16.png";
+                pestanas.getComponentAt(i).setBackground(new Color(88, 211, 247));
+                icono = new ImageIcon(getClass().getResource(url));
+                pestanas.setIconAt(i, icono);
+            }
+        }
         url = "/iconos/solucionx32.png";
         icono = new ImageIcon(getClass().getResource(url));
         JOptionPane.showMessageDialog(vResultados,
                 "Política de producción mas conveniente: " + politica
                 + " Refrigeradores por día"
-                + "\nCosto total: $" + costoTotal
+                + "\nCosto total promedio: $" + costoTotal
                 + " pesos por día", "Simulación Terminada", JOptionPane.INFORMATION_MESSAGE, icono);
     }
 }

@@ -1,6 +1,7 @@
 package vistas;
 
 import java.awt.Component;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
@@ -18,6 +19,8 @@ public class VistaResultados extends JFrame {
         setSize(800, 600);
         setLocation(100, 100);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        String url = "/iconos/resultadosx32.png";
+        setIconImage(new ImageIcon(getClass().getResource(url)).getImage());
         setVisible(true);      
     }
 
