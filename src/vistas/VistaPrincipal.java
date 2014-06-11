@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import modelos.Corrida;
 
 /**
  *
@@ -66,20 +67,27 @@ public class VistaPrincipal extends JPanel {
         jcbxPoliticas = new JCheckBox(ETQ_JCBX_SELECCION);
         jcbxPoliticas.setToolTipText("Seleccione esta casilla si desea introducir datos diferentes a los del enunciado.");
         jtfPoliticas = new JTextField(30);
-        jtfPoliticas.setEnabled(false);
+        jtfPoliticas.setEditable(false);
         jtfPoliticas.setToolTipText("Introduzca las políticas que quiera que se evaluen separadas por un espacio en blanco.");
+        jtfPoliticas.setText(VistaCorrida.POLITICAS);
         jtfCostoFaltante = new JTextField(7);
-        jtfCostoFaltante.setEnabled(false);
+        jtfCostoFaltante.setEditable(false);
+        jtfCostoFaltante.setText(Corrida.COSTO_X_FALTANTE);
         jtfCostoInventario = new JTextField(7);
-        jtfCostoInventario.setEnabled(false);
+        jtfCostoInventario.setEditable(false);
+        jtfCostoInventario.setText(Corrida.COSTO_X_INVENTARIO);
         jtfCorridas = new JTextField(7);
-        jtfCorridas.setEnabled(false);
+        jtfCorridas.setEditable(false);
+        jtfCorridas.setText(VistaCorrida.CORRIDAS);
         jtfDias = new JTextField(7);
-        jtfDias.setEnabled(false);
+        jtfDias.setEditable(false);
+        jtfDias.setText(Corrida.DIAS);
         jtfMedia = new JTextField(7);
-        jtfMedia.setEnabled(false);
+        jtfMedia.setEditable(false);
+        jtfMedia.setText(Corrida.MEDIA);
         jtfDevEstandar = new JTextField(7);
-        jtfDevEstandar.setEnabled(false);
+        jtfDevEstandar.setEditable(false);
+        jtfDevEstandar.setText(Corrida.DEV_ESTANDAR);
         jbnIniciar = new JButton(ETQ_BTN_INICIAR);
 
         JTextArea enunciado = new JTextArea(texto);
@@ -156,6 +164,8 @@ public class VistaPrincipal extends JPanel {
     private void addEventos() {
         ControladorVistaPrincipal controlador = new ControladorVistaPrincipal(this);
         jbnIniciar.addActionListener(controlador);
+        jcbxPoliticas.addItemListener(controlador);
+        jtfPoliticas.setInputVerifier(controlador);
     }
 
     public JCheckBox getJcbxPoliticas() {

@@ -16,7 +16,7 @@ public class VentanaInicio extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VentanaInicio m = new VentanaInicio();
+        new VentanaInicio();
     }
     
     public VentanaInicio(){
@@ -25,7 +25,7 @@ public class VentanaInicio extends JFrame {
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException |
                 InstantiationException | IllegalAccessException e) {
         }
-        setTitle("Modelo de Simulación Problema 4 capitulo 3.");
+        setTitle("Modelo de Simulación Ejercicio 4 capitulo 3.");
         VistaPrincipal vista = new VistaPrincipal();
         setLocation(100,100);
         setSize(450, 500);

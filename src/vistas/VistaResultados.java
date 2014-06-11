@@ -14,10 +14,11 @@ public class VistaResultados extends JFrame {
 
     public VistaResultados() {
         addComponentes();
+        setTitle("Resultados por cada política");
         setSize(800, 600);
         setLocation(100, 100);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setVisible(true);
+        setVisible(true);      
     }
 
     private void addComponentes() {
@@ -34,7 +35,6 @@ public class VistaResultados extends JFrame {
     }
 
     public Component getPestana(int index) {
-        System.out.println(pestanas.getTabComponentAt(index));
         return pestanas.getComponentAt(index);
     }
 }

@@ -6,6 +6,12 @@ package modelos;
  */
 public class Corrida {
 
+    public static String COSTO_X_FALTANTE = "8";
+    public static String COSTO_X_INVENTARIO = "5";
+    public static String DIAS = "100";
+    public static String DEV_ESTANDAR = "10";
+    public static String MEDIA = "80";
+    
     private final int produccionDiaria;
     private final double costoFaltante;
     private final double costoInventario;
@@ -14,6 +20,10 @@ public class Corrida {
     private final int desvEstandar;
     private double costoPromedioCorrida;
     private final String[][] datos;
+
+    public Corrida(int produccionDiaria) {
+        this(produccionDiaria, 8d, 5d, 100, 80, 10);
+    }
 
     public Corrida(int produccionDiaria, double costoFaltante, double costoInventario, int dias, int media, int desvEstandar) {
         this.produccionDiaria = produccionDiaria;
