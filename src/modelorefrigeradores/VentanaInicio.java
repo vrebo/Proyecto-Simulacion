@@ -1,5 +1,6 @@
 package modelorefrigeradores;
 
+import componentes.BarraMenu;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -16,17 +17,17 @@ public class VentanaInicio extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new VentanaInicio();
-    }
-    
-    public VentanaInicio(){
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException |
                 InstantiationException | IllegalAccessException e) {
         }
+        new VentanaInicio(new BarraMenu());
+    }
+    public VentanaInicio(BarraMenu barra){
         setTitle("Modelo de Simulación Ejercicio 4 capitulo 3.");
         VistaPrincipal vista = new VistaPrincipal();
+        setJMenuBar(barra);
         setLocation(100,100);
         setSize(450, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
