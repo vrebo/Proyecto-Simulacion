@@ -20,7 +20,7 @@ import modelos.Corrida;
 public class VistaCorrida extends JPanel {
 
     public static String POLITICAS = "60 70 80 90 100";
-    public static String CORRIDAS = "5";
+    public static int CORRIDAS = 5;
     
     private final String[] titulos = {
         "DÍA", "PRODUCCIÓN",
@@ -44,4 +44,7 @@ public class VistaCorrida extends JPanel {
         add(etiqueta, BorderLayout.SOUTH);
     }
 
+    public Corrida getCorrida() {
+        return corrida;
+    }
 }

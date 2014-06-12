@@ -72,22 +72,22 @@ public class VistaPrincipal extends JPanel {
         jtfPoliticas.setText(VistaCorrida.POLITICAS);
         jtfCostoFaltante = new JTextField(7);
         jtfCostoFaltante.setEditable(false);
-        jtfCostoFaltante.setText(Corrida.COSTO_X_FALTANTE);
+        jtfCostoFaltante.setText(Corrida.COSTO_X_FALTANTE + "");
         jtfCostoInventario = new JTextField(7);
         jtfCostoInventario.setEditable(false);
-        jtfCostoInventario.setText(Corrida.COSTO_X_INVENTARIO);
+        jtfCostoInventario.setText(Corrida.COSTO_X_INVENTARIO + "");
         jtfCorridas = new JTextField(7);
         jtfCorridas.setEditable(false);
-        jtfCorridas.setText(VistaCorrida.CORRIDAS);
+        jtfCorridas.setText(VistaCorrida.CORRIDAS + "");
         jtfDias = new JTextField(7);
         jtfDias.setEditable(false);
-        jtfDias.setText(Corrida.DIAS);
+        jtfDias.setText(Corrida.DIAS + "");
         jtfMedia = new JTextField(7);
         jtfMedia.setEditable(false);
-        jtfMedia.setText(Corrida.MEDIA);
+        jtfMedia.setText(Corrida.MEDIA + "");
         jtfDevEstandar = new JTextField(7);
         jtfDevEstandar.setEditable(false);
-        jtfDevEstandar.setText(Corrida.DEV_ESTANDAR);
+        jtfDevEstandar.setText(Corrida.DEV_ESTANDAR + "");
         jbnIniciar = new JButton(ETQ_BTN_INICIAR);
 
         JTextArea enunciado = new JTextArea(texto);
